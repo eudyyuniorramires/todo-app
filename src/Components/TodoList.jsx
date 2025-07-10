@@ -5,9 +5,21 @@ import CreateTask from "../Modal/CreateTask";
 const TodoList = () => {
 
     const [modal, setModal] = useState(false);
-    
+    const [taskList, setTaskList] = useState([]);
+
     const toggle = () =>{
         setModal(!modal);   
+    }
+
+
+    const saveTask = (taskObject) =>{
+
+        let tempList = taskList;
+        tempList.push(taskObject);
+        setTaskList(tempList);
+        setModal(false);
+
+
     }
     return (
 
@@ -18,10 +30,10 @@ const TodoList = () => {
         </div>
 
         <div className='tarea-container'>
-
+              {taskList.map((Object) => <li>{Object.Name} </li>)}
         </div>
 
-        <CreateTask toggle = {toggle } modal ={modal}/>
+        <CreateTask toggle = {toggle } modal ={modal} save = {saveTask}/>
         </>
         
     );
