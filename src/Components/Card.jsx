@@ -9,7 +9,6 @@ const colors = ["#007bff", "#28a745", "#dc3545", "#ffc107", "#17a2b8", "#6f42c1"
 const Card = ({ taskObject, index ,deleteTask,updateListArray}) => {
 
     const borderTopColor = colors[index % colors.length]
-    const [modal, setModal] = useState(false);
     const [completed,setCompleted] = useState(false);
 
 
